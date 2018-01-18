@@ -14,7 +14,6 @@ export function authenticateSession(app, sessionData) {
   const session = container.lookup('service:session');
   ensureAuthenticator(app, container);
   session.authenticate(TEST_CONTAINER_KEY, sessionData);
-  return app.testHelpers.wait();
 }
 
 export function currentSession(app) {
@@ -26,5 +25,4 @@ export function invalidateSession(app) {
   if (session.get('isAuthenticated')) {
     session.invalidate();
   }
-  return app.testHelpers.wait();
 }
